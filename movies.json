@@ -1,0 +1,360 @@
+[
+	{
+		"movieId": 2,
+		"title": "Avengers: Endgame",
+		"director": "Joe and Anthony Brothers",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"RDJ",
+			"Chris Evans",
+			"Scarlett Johansson"
+		],
+		"releaseYear": 2019,
+		"poster": "avengers-endgame.png",
+		"posterUrl": "http://localhost:8080/file/avengers-endgame.png"
+	},
+	{
+		"movieId": 3,
+		"title": "Avengers: Infinity War",
+		"director": "Joe and Anthony Brothers",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"Chris Hemsworth",
+			"RDJ",
+			"Chris Evans",
+			"Scarlett Johansson"
+		],
+		"releaseYear": 2018,
+		"poster": "avengers-infinity-war.png",
+		"posterUrl": "http://localhost:8080/file/avengers-infinity-war.png"
+	},
+	{
+		"movieId": 4,
+		"title": "Oppenheimer",
+		"director": "Christopher Nolan",
+		"studio": "Universal Pictures",
+		"movieCast": [
+			"Emily Blunt",
+			"Matt Damon",
+			"Cillian Murphy"
+		],
+		"releaseYear": 2023,
+		"poster": "oppenheimer.png",
+		"posterUrl": "http://localhost:8080/file/oppenheimer.png"
+	},
+	{
+		"movieId": 37,
+		"title": "Jawan",
+		"director": "Atlee Kumar",
+		"studio": "Red Chillies Entertainment",
+		"movieCast": [
+			"Vijay Sethupathi",
+			"Shah Rukh Khan",
+			"Nayanthara"
+		],
+		"releaseYear": 2023,
+		"poster": "jawan.png",
+		"posterUrl": "http://localhost:8080/file/jawan.png"
+	},
+	{
+		"movieId": 38,
+		"title": "John Wick",
+		"director": "Chad Stahelski",
+		"studio": "Summit Entertainment",
+		"movieCast": [
+			"Michael Nyqvist",
+			"Alfie Allen",
+			"Keanu Reeves"
+		],
+		"releaseYear": 2014,
+		"poster": "john-wick.png",
+		"posterUrl": "http://localhost:8080/file/john-wick.png"
+	},
+	{
+		"movieId": 39,
+		"title": "Godzilla vs. Kong",
+		"director": "Adam Wingard",
+		"studio": "Warner Bros. Pictures",
+		"movieCast": [
+			"Alexander Skarsgård",
+			"Millie Bobby Brown",
+			"Rebecca Hall"
+		],
+		"releaseYear": 2021,
+		"poster": "godzilla-vs-kong.png",
+		"posterUrl": "http://localhost:8080/file/godzilla-vs-kong.png"
+	},
+	{
+		"movieId": 40,
+		"title": "Godzilla: King of the Monsters",
+		"director": "Michael Dougherty",
+		"studio": "Warner Bros. Pictures",
+		"movieCast": [
+			"Kyle Chandler",
+			"Millie Bobby Brown",
+			"Vera Farmiga"
+		],
+		"releaseYear": 2019,
+		"poster": "godzilla-king-of-monsters.png",
+		"posterUrl": "http://localhost:8080/file/godzilla-king-of-monsters.png"
+	},
+	{
+		"movieId": 41,
+		"title": "The Dark Knight",
+		"director": "Christopher Nolan",
+		"studio": "Warner Bros. Pictures",
+		"movieCast": [
+			"Christian Bale",
+			"Heath Ledger",
+			"Aaron Eckhart"
+		],
+		"releaseYear": 2008,
+		"poster": "batman-dark-knight-rises.png",
+		"posterUrl": "http://localhost:8080/file/batman-dark-knight-rises.png"
+	},
+	{
+		"movieId": 42,
+		"title": "Kong: Skull Island",
+		"director": "Jordan Vogt-Roberts",
+		"studio": "Warner Bros. Pictures",
+		"movieCast": [
+			"Tom Hiddleston",
+			"Samuel L. Jackson",
+			"Brie Larson"
+		],
+		"releaseYear": 2017,
+		"poster": "kong-skullisland.png",
+		"posterUrl": "http://localhost:8080/file/kong-skullisland.png"
+	},
+	{
+		"movieId": 43,
+		"title": "Iron Man",
+		"director": "Jon Favreau",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"Robert Downey Jr.",
+			"Gwyneth Paltrow",
+			"Jeff Bridges"
+		],
+		"releaseYear": 2008,
+		"poster": "iron-man-1.png",
+		"posterUrl": "http://localhost:8080/file/iron-man-1.png"
+	},
+	{
+		"movieId": 44,
+		"title": "Captain America: The First Avenger",
+		"director": "Joe Johnston",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"Sebastian Stan",
+			"Hayley Atwell",
+			"Chris Evans"
+		],
+		"releaseYear": 2011,
+		"poster": "captain-america-first-avenger.png",
+		"posterUrl": "http://localhost:8080/file/captain-america-first-avenger.png"
+	},
+	{
+		"movieId": 45,
+		"title": "Black Widow",
+		"director": "Cate Shortland",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"David Harbour",
+			"Scarlett Johansson",
+			"Florence Pugh"
+		],
+		"releaseYear": 2021,
+		"poster": "black-widow.png",
+		"posterUrl": "http://localhost:8080/file/black-widow.png"
+	},
+	{
+		"movieId": 46,
+		"title": "Superman",
+		"director": "Richard Donner",
+		"studio": "Warner Bros. Pictures",
+		"movieCast": [
+			"Gene Hackman",
+			"Margot Kidder",
+			"Christopher Reeve"
+		],
+		"releaseYear": 1978,
+		"poster": "small-justice-league-superman.png",
+		"posterUrl": "http://localhost:8080/file/small-justice-league-superman.png"
+	},
+	{
+		"movieId": 47,
+		"title": "Captain America: Civil War",
+		"director": "Anthony Russo, Joe Russo",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"Robert Downey Jr.",
+			"Chris Evans",
+			"Scarlett Johansson"
+		],
+		"releaseYear": 2016,
+		"poster": "captain-america-civil-war.png",
+		"posterUrl": "http://localhost:8080/file/captain-america-civil-war.png"
+	},
+	{
+		"movieId": 48,
+		"title": "Iron Man 2",
+		"director": "Jon Favreau",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"Don Cheadle",
+			"Robert Downey Jr.",
+			"Gwyneth Paltrow"
+		],
+		"releaseYear": 2010,
+		"poster": "iron-man-2.png",
+		"posterUrl": "http://localhost:8080/file/iron-man-2.png"
+	},
+	{
+		"movieId": 49,
+		"title": "Captain America: The Winter Soldier",
+		"director": "Anthony Russo, Joe Russo",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"Anthony Mackie",
+			"Chris Evans",
+			"Scarlett Johansson"
+		],
+		"releaseYear": 2014,
+		"poster": "captain-america-the-winter-soldier.png",
+		"posterUrl": "http://localhost:8080/file/captain-america-the-winter-soldier.png"
+	},
+	{
+		"movieId": 50,
+		"title": "Black Panther",
+		"director": "Ryan Coogler",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"Michael B. Jordan",
+			"Chadwick Boseman",
+			"Lupita Nyong'o"
+		],
+		"releaseYear": 2018,
+		"poster": "black-panther.png",
+		"posterUrl": "http://localhost:8080/file/black-panther.png"
+	},
+	{
+		"movieId": 51,
+		"title": "Ant-Man",
+		"director": "Peyton Reed",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"Evangeline Lilly",
+			"Paul Rudd",
+			"Michael Douglas"
+		],
+		"releaseYear": 2015,
+		"poster": "Ant-Man.png",
+		"posterUrl": "http://localhost:8080/file/Ant-Man.png"
+	},
+	{
+		"movieId": 52,
+		"title": "Ant-Man and The Wasp",
+		"director": "Peyton Reed",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"Evangeline Lilly",
+			"Michael Peña",
+			"Paul Rudd"
+		],
+		"releaseYear": 2018,
+		"poster": "ant-man-and-wasp.png",
+		"posterUrl": "http://localhost:8080/file/ant-man-and-wasp.png"
+	},
+	{
+		"movieId": 53,
+		"title": "The Avengers",
+		"director": "Joss Whedon",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"Mark Ruffalo",
+			"Chris Hemsworth",
+			"Cobie Smulders",
+			"Robert Downey Jr.",
+			"Clark Gregg",
+			"Jeremy Renner",
+			"Tom Hiddleston",
+			"Samuel L. Jackson",
+			"Chris Evans",
+			"Scarlett Johansson"
+		],
+		"releaseYear": 2012,
+		"poster": "avengers-2012.png",
+		"posterUrl": "http://localhost:8080/file/avengers-2012.png"
+	},
+	{
+		"movieId": 54,
+		"title": "Thor",
+		"director": "Kenneth Branagh",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"Chris Hemsworth",
+			"Tom Hiddleston",
+			"Natalie Portman"
+		],
+		"releaseYear": 2011,
+		"poster": "thor-1.png",
+		"posterUrl": "http://localhost:8080/file/thor-1.png"
+	},
+	{
+		"movieId": 55,
+		"title": "The Incredible Hulk",
+		"director": "Louis Leterrier",
+		"studio": "Marvel Studios",
+		"movieCast": [
+			"Liv Tyler",
+			"Tim Roth",
+			"Edward Norton"
+		],
+		"releaseYear": 2008,
+		"poster": "incredible-hulk.png",
+		"posterUrl": "http://localhost:8080/file/incredible-hulk.png"
+	},
+	{
+		"movieId": 56,
+		"title": "Wonder Woman 1984",
+		"director": "Patty Jenkins",
+		"studio": "DC Films",
+		"movieCast": [
+			"Chris Pine",
+			"Kristen Wiig",
+			"Gal Gadot"
+		],
+		"releaseYear": 2020,
+		"poster": "wonder-woman-1984.png",
+		"posterUrl": "http://localhost:8080/file/wonder-woman-1984.png"
+	},
+	{
+		"movieId": 58,
+		"title": "The Conjuring",
+		"director": "James Wan",
+		"studio": "New Line Cinema",
+		"movieCast": [
+			"Patrick Wilson",
+			"Lili Taylor",
+			"Vera Farmiga"
+		],
+		"releaseYear": 2013,
+		"poster": "conjuring.png",
+		"posterUrl": "http://localhost:8080/file/conjuring.png"
+	},
+	{
+		"movieId": 59,
+		"title": "Animal",
+		"director": "Sandeep Reddy Vanga",
+		"studio": "T-Series",
+		"movieCast": [
+			"Parineeti Chopra",
+			"Ranbir Kapoor",
+			"Anil Kapoor"
+		],
+		"releaseYear": 2023,
+		"poster": "animal.png",
+		"posterUrl": "http://localhost:8080/file/animal.png"
+	}
+]
