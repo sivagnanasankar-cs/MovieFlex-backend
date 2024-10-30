@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "005807c7-05fa-4a54-b082-cba0b87e6aea",
+		"name": "movieflex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36534422"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"name\":\"siva\",\r\n//     \"email\":\"sivagnanasankar@gmail.com\",\r\n//     \"username\": \"siva\",\r\n//     \"password\": \"2003\"\r\n// }\r\n\r\n{\r\n    \"name\":\"siva\",\r\n    \"email\":\"717821d149@kce.ac.in\",\r\n    \"username\": \"siva0910\",\r\n    \"password\": \"2003\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/v1/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"717821d149@kce.ac.in\",\r\n    \"password\" : \"2003\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/v1/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "get-all",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": {
+								"algorithm": "HS256",
+								"isSecretBase64Encoded": false,
+								"payload": "{}",
+								"addTokenTo": "header",
+								"headerPrefix": "Bearer",
+								"queryParamKey": "token",
+								"header": "{}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3MTc4MjFkMTQ5QGtjZS5hYy5pbiIsImlhdCI6MTcyMTIwMzgwMCwiZXhwIjoxNzIxMjA0MTAwfQ.hxQ2SLKp2qVjYnp4hncI0U9aUy3e2vc8VaGHSl7Ejk4",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/api/v1/movie/all"
+					},
+					"response": []
+				},
+				{
+					"name": "refreshToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\" : \"0c93d959-1414-4996-9b9b-64e7c85c2468\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/v1/auth/refresh"
+					},
+					"response": []
+				},
+				{
+					"name": "add-movie",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": {
+								"algorithm": "HS256",
+								"isSecretBase64Encoded": false,
+								"payload": "{}",
+								"addTokenTo": "header",
+								"headerPrefix": "Bearer",
+								"queryParamKey": "token",
+								"header": "{}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MjExMDAxMTUsImV4cCI6MTcyMTEwMDE0MH0.qnHjpjzZRXzypTg7OUuFAnUWVoBALHQOZavcsQIOuag",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file\n",
+									"type": "file",
+									"src": "/D:/Spring boot/sudharshan shah/movie proj img/animal.png"
+								},
+								{
+									"key": "movieDto\n",
+									"value": "{\n  \"title\": \"Animal\",\n  \"director\": \"Sandeep Reddy Vanga\",\n  \"studio\": \"T-Series\",\n  \"movieCast\": [\"Ranbir Kapoor\", \"Anil Kapoor\", \"Parineeti Chopra\"],\n  \"releaseYear\": 2023\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8080/api/v1/movie/add-movie"
+					},
+					"response": []
+				},
+				{
+					"name": "register-otp-verification",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "forgotPassword",
+			"item": [
+				{
+					"name": "ForgotPassword",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8080/forgotPassword/verifyMail/sivagnanasankar@gmail.com"
+					},
+					"response": []
+				},
+				{
+					"name": "verifyotp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8080/forgotPassword/verifyOtp/796781/717821d149@kce.ac.in"
+					},
+					"response": []
+				},
+				{
+					"name": "changePassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"0910\",\r\n    \"repeatPassword\": \"0910\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/forgotPassword/changePassword/717821d149@kce.ac.in"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST-add-movie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/Spring boot/sudharshan shah/movie proj img/conjuring.png"
+						},
+						{
+							"key": "movieDto",
+							"value": "{\n  \"title\": \"The Conjuring\",\n  \"director\": \"James Wan\",\n  \"studio\": \"New Line Cinema\",\n  \"movieCast\": [\"Vera Farmiga\", \"Patrick Wilson\", \"Lili Taylor\"],\n  \"releaseYear\": 2013\n}\n",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/api/v1/movie/add-movie"
+			},
+			"response": []
+		},
+		{
+			"name": "get-movie",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3MTc4MjFkMTQ5QGtjZS5hYy5pbiIsImlhdCI6MTcyMTIwMzgwMCwiZXhwIjoxNzIxMjA0MTAwfQ.hxQ2SLKp2qVjYnp4hncI0U9aUy3e2vc8VaGHSl7Ejk4",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/v1/movie/2"
+			},
+			"response": []
+		},
+		{
+			"name": "get-all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/movie/all"
+			},
+			"response": []
+		},
+		{
+			"name": "update-movie",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/sivag/OneDrive/Desktop/movie proj img/avengers-infinity-war.png"
+						},
+						{
+							"key": "movieDtoObj",
+							"value": "{\n    \"movieId\" : 3,\n    \"title\" : \"Avengers: Infinity War\",\n    \"director\" : \"Joe and Anthony Brothers\",\n    \"studio\" : \"Marvel Studios\",\n    \"movieCast\" : [\"RDJ\", \"Chris Evans\", \"Scarlett Johansson\", \"Chris Hemsworth\"],\n    \"releaseYear\" : 2018,\n    \"poster\": \"default.png\",\n    \"posterUrl\" : \"url\"\n  }",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/api/v1/movie/update/3"
+			},
+			"response": []
+		},
+		{
+			"name": "delete-movie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/movie/delete/57"
+			},
+			"response": []
+		},
+		{
+			"name": "get-movie-page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3MTc4MjFkMTQ5QGtjZS5hYy5pbiIsImlhdCI6MTcyMTIwMzgwMCwiZXhwIjoxNzIxMjA0MTAwfQ.hxQ2SLKp2qVjYnp4hncI0U9aUy3e2vc8VaGHSl7Ejk4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "pageNumber",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/api/v1/movie/allMoviesPage"
+			},
+			"response": []
+		},
+		{
+			"name": "get-movie-pageSort",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3MTc4MjFkMTQ5QGtjZS5hYy5pbiIsImlhdCI6MTcyMTIwMzgwMCwiZXhwIjoxNzIxMjA0MTAwfQ.hxQ2SLKp2qVjYnp4hncI0U9aUy3e2vc8VaGHSl7Ejk4",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/v1/movie/allMoviesPageSort"
+			},
+			"response": []
+		},
+		{
+			"name": "get-image",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
