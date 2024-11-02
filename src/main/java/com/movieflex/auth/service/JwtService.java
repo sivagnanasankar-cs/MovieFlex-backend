@@ -54,12 +54,13 @@ public class JwtService {
 
     // generate token using Jwt utility class and return token as String
     public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
+        int expirationTime = 24 * 60 * 60 * 1000; // 1 day
         return Jwts
                 .builder()
                 .setClaims(extraClaims)
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 5 * 60 * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                 .compact();
     }

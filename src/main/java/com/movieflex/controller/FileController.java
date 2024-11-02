@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.io.InputStream;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/file/")
 public class FileController {
@@ -37,7 +38,7 @@ public class FileController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("{fileName}")
+    @GetMapping("get/{fileName}")
     public void serveFileHandler(@PathVariable String fileName, HttpServletResponse response) throws IOException {
         InputStream resourcefile = fileService.getResourceFile(path, fileName);
         response.setContentType(MediaType.IMAGE_PNG_VALUE);
