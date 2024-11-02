@@ -54,7 +54,6 @@ public class MovieMapper {
     }
 
     private String createPosterUrl(String poster, String baseUrl){
-        System.err.println(baseUrl);
         return  baseUrl + "/file/" + poster;
     }
 }

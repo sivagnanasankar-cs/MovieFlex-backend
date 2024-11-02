@@ -101,7 +101,6 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Response getAllMovies() {
-        System.err.println(baseUrl);
         List<Movie> movies = movieRepository.findAll();
         List<MovieDto> movieDtoList= movieMapper.movieToMovieDto(movies, baseUrl);
         return Response.builder()
