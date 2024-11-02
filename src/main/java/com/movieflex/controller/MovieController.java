@@ -78,9 +78,9 @@ public class MovieController {
             @RequestParam(defaultValue = AppConstants.PAGE_NUMBER, required = false) Integer pageNumber,
             @RequestParam(defaultValue = AppConstants.PAGE_SIZE, required = false) Integer pageSize,
             @RequestParam(defaultValue = AppConstants.SORT_BY, required = false) String sortBy,
-            @RequestParam(defaultValue = AppConstants.SORT_DIR, required = false) String dir)
-    {
-        Response response = movieService.getAllMoviesWithPaginationAndSorting(pageNumber,pageSize, sortBy, dir);
+            @RequestParam(defaultValue = AppConstants.SORT_DIR, required = false) String dir,
+            @RequestParam(defaultValue = "", required = false) String query) throws IOException {
+        Response response = movieService.getAllMoviesWithPaginationAndSorting(pageNumber,pageSize, sortBy, dir, query);
         return ResponseEntity.ok(response);
     }
 

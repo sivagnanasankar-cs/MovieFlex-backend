@@ -11,6 +11,7 @@ import com.movieflex.mapper.MovieMapper;
 import com.movieflex.repositories.MovieRepository;
 import com.movieflex.service.FileService;
 import com.movieflex.service.MovieService;
+import com.movieflex.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -177,10 +178,15 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public Response getAllMoviesWithPaginationAndSorting(Integer pageNumber, Integer pageSize, String sortBy, String dir) {
+    public Response getAllMoviesWithPaginationAndSorting(Integer pageNumber, Integer pageSize, String sortBy, String dir, String query) {
         Sort sort = dir.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
-        Page<Movie> moviePages = movieRepository.findAll(pageable);
+        Page<Movie> moviePages;
+        if (CommonUtils.checkIsNullOrEmpty(query)) {
+            moviePages = movieRepository.findAll(pageable);
+        } else {
+            moviePages = movieRepository.searchByTitleDirectorOrCast(query, pageable);
+        }
         List<Movie> movies = moviePages.getContent();
         List<MovieDto> movieDtos = movieMapper.movieToMovieDto(movies, baseUrl);
 
