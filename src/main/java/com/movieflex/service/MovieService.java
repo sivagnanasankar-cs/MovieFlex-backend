@@ -21,5 +21,5 @@ public interface MovieService {
     Response getAllMoviesWithPagination(Integer pageNumber, Integer pageSize);
 
     Response getAllMoviesWithPaginationAndSorting(Integer pageNumber, Integer pageSize,
-                                                           String sortBy, String dir);
+                                                           String sortBy, String dir, String query) throws IOException;
 }
