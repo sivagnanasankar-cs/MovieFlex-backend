@@ -21,7 +21,7 @@ public class MovieMapper {
                     movie.getMovieCast(),
                     movie.getReleaseYear(),
                     movie.getPoster(),
-                    this.createPosterUrl(movie.getPoster(), baseUrl)
+                    this.createPosterUrl(baseUrl,movie.getPoster())
             );
             movieDtos.add(movieDto);
         }
@@ -37,7 +37,7 @@ public class MovieMapper {
                 movie.getMovieCast(),
                 movie.getReleaseYear(),
                 movie.getPoster(),
-                this.createPosterUrl(movie.getPoster(), baseUrl)
+                this.createPosterUrl(baseUrl, movie.getPoster())
         );
     }
     
@@ -53,7 +53,7 @@ public class MovieMapper {
         );
     }
 
-    private String createPosterUrl(String poster, String baseUrl){
+    public String createPosterUrl(String baseUrl, String poster){
         return  baseUrl + "/file/get/" + poster;
     }
 }
