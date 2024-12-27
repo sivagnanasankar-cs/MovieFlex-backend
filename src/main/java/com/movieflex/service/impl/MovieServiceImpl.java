@@ -71,8 +71,7 @@ public class MovieServiceImpl implements MovieService {
         // 4. to save the movie obj -> same movie obj
         Movie savedMovie = movieRepository.save(movie);
 
-        String posterUrl = baseUrl + "/file/" + uploadedFileName;
-        // 6. map movie object to dto obj and return
+        // 5. map movie object to dto obj and return
         MovieDto movieDto1 = movieMapper.movieToMovieDto(movie, baseUrl);
         return Response.builder()
                 .statusCode("201")
@@ -88,10 +87,8 @@ public class MovieServiceImpl implements MovieService {
         // 1. check the data in db if exists fetch the data of given id
         Movie movie = movieRepository.findById(movieId)
                 .orElseThrow(() -> new MovieNotFoundException("movie not found with the id = " + movieId));
-        // 2. generate poster url
-        String posterUrl = baseUrl + "/file/" + movie.getPoster();
 
-        // 3. map to moviedto object and return
+        // 2. map to moviedto object and return
         MovieDto movieDto =  movieMapper.movieToMovieDto(movie, baseUrl);
         return Response.builder()
                 .statusCode(MessageCodes.OK)
@@ -135,7 +132,6 @@ public class MovieServiceImpl implements MovieService {
         Movie updatedMovie = movieRepository.save(movieToUpdate);
 
         // 5. generate poster url for it
-        String posterUrl = baseUrl + "/file/" + movie.getPoster();
         MovieDto movieDto1 = movieMapper.movieToMovieDto(updatedMovie, baseUrl);
         return Response.builder().statusCode(MessageCodes.OK).statusDescription("Details updated Successfully").data(movieDto1).build();
     }
