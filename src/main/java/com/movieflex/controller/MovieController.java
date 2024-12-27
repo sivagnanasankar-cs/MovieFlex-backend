@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.movieflex.dto.MovieDto;
 import com.movieflex.dto.Response;
 import com.movieflex.service.MovieService;
-import com.movieflex.utils.AppConstants;
+import com.movieflex.constants.AppConstants;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

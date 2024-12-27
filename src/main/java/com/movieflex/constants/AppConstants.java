@@ -1,4 +1,4 @@
-package com.movieflex.utils;
+package com.movieflex.constants;
 
 public class AppConstants {
 
