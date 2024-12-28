@@ -13,17 +13,7 @@ public class MovieMapper {
         List<MovieDto> movieDtos = new ArrayList<>();
 
         for(Movie movie : movies){
-            MovieDto movieDto = new MovieDto(
-                    movie.getMovieId(),
-                    movie.getTitle(),
-                    movie.getDirector(),
-                    movie.getStudio(),
-                    movie.getMovieCast(),
-                    movie.getReleaseYear(),
-                    movie.getPoster(),
-                    this.createPosterUrl(baseUrl,movie.getPoster())
-            );
-            movieDtos.add(movieDto);
+            movieDtos.add(movieToMovieDto(movie, baseUrl));
         }
         return movieDtos;
     }
