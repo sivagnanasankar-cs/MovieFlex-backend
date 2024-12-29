@@ -1,5 +1,6 @@
 package com.movieflex.service.impl;
 
+import com.movieflex.config.DataSourceConfig;
 import com.movieflex.constants.MessageCodes;
 import com.movieflex.dto.MovieDto;
 import com.movieflex.dto.MoviePageResponse;
@@ -12,7 +13,6 @@ import com.movieflex.repositories.MovieRepository;
 import com.movieflex.service.FileService;
 import com.movieflex.service.MovieService;
 import com.movieflex.utils.CommonUtils;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -35,16 +35,16 @@ public class MovieServiceImpl implements MovieService {
     private final FileService fileService;
     private final MovieMapper movieMapper;
 
-    @Value("${project.poster}")
-    private String path;
+    private final String path;
+    private final String baseUrl;
 
-    @Value("${base.url}")
-    private String baseUrl;
-
-    public MovieServiceImpl(MovieRepository movieRepository, FileService fileService) {
+    public MovieServiceImpl(MovieRepository movieRepository, FileService fileService, DataSourceConfig config) {
         this.movieRepository = movieRepository;
         this.fileService = fileService;
         this.movieMapper = new MovieMapper();
+
+        path = config.getDataSource().getPath();
+        baseUrl = config.getDataSource().getBaseUrl();
     }
 
     @Override
@@ -162,9 +162,9 @@ public class MovieServiceImpl implements MovieService {
         List<MovieDto> movieDtos = movieMapper.movieToMovieDto(movies, baseUrl);
 
         MoviePageResponse moviePageResponse = new MoviePageResponse(movieDtos, pageNumber, pageSize,
-                                    (int) moviePages.getTotalElements(),
-                                    moviePages.getTotalPages(),
-                                    moviePages.isLast());
+                (int) moviePages.getTotalElements(),
+                moviePages.getTotalPages(),
+                moviePages.isLast());
 
         return Response.builder()
                 .statusCode(MessageCodes.OK)
