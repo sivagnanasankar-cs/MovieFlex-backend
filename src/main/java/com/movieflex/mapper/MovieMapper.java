@@ -2,6 +2,7 @@ package com.movieflex.mapper;
 
 import com.movieflex.dto.MovieDto;
 import com.movieflex.entities.Movie;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 public class MovieMapper {
 
 
-    public List<MovieDto> movieToMovieDto(List<Movie> movies, String baseUrl) {
+    public List<MovieDto> movieToMovieDto(@NotNull List<Movie> movies, String baseUrl) {
         List<MovieDto> movieDtos = new ArrayList<>();
 
         for(Movie movie : movies){
@@ -17,8 +18,8 @@ public class MovieMapper {
         }
         return movieDtos;
     }
-    
-    public MovieDto movieToMovieDto(Movie movie, String baseUrl) {
+
+    public MovieDto movieToMovieDto(@NotNull Movie movie, String baseUrl) {
         return  new MovieDto(
                 movie.getMovieId(),
                 movie.getTitle(),
@@ -30,8 +31,8 @@ public class MovieMapper {
                 this.createPosterUrl(baseUrl, movie.getPoster())
         );
     }
-    
-    public Movie movieDtoToMovie(MovieDto movieDto) {
+
+    public Movie movieDtoToMovie(@NotNull MovieDto movieDto) {
         return new Movie(
                 movieDto.getMovieId(),
                 movieDto.getTitle(),

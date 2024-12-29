@@ -1,10 +1,10 @@
 package com.movieflex.controller;
 
+import com.movieflex.config.DataSourceConfig;
 import com.movieflex.constants.MessageCodes;
 import com.movieflex.dto.Response;
 import com.movieflex.service.FileService;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StreamUtils;
@@ -18,14 +18,14 @@ import java.io.InputStream;
 @RestController
 @RequestMapping("/file/")
 public class FileController {
+
     private final FileService fileService;
+    private final String path;
 
-    public FileController(FileService fileService) {
+    public FileController(FileService fileService, DataSourceConfig config) {
         this.fileService = fileService;
+        this.path = config.getDataSource().getPath();
     }
-
-    @Value("${project.poster}")
-    private String path;
 
     @PostMapping("upload")
     public ResponseEntity<Response> uploadFileHandler(@RequestPart MultipartFile file) throws IOException {
