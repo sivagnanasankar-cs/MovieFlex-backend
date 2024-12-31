@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DataSourceConfig {
 
-    @Value("${spring.profiles.active}")
+    @Value("${spring.profiles}")
     private String domain;
 
     @Value("${base.url}")
