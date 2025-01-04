@@ -11,7 +11,7 @@
 		],
 		"releaseYear": 2019,
 		"poster": "avengers-endgame.png",
-		"posterUrl": "http://localhost:8080/file/avengers-endgame.png"
+		"posterUrl": "http://localhost:8080/file/get/avengers-endgame.png"
 	},
 	{
 		"movieId": 3,
@@ -26,7 +26,7 @@
 		],
 		"releaseYear": 2018,
 		"poster": "avengers-infinity-war.png",
-		"posterUrl": "http://localhost:8080/file/avengers-infinity-war.png"
+		"posterUrl": "http://localhost:8080/file/get/avengers-infinity-war.png"
 	},
 	{
 		"movieId": 4,
@@ -40,7 +40,7 @@
 		],
 		"releaseYear": 2023,
 		"poster": "oppenheimer.png",
-		"posterUrl": "http://localhost:8080/file/oppenheimer.png"
+		"posterUrl": "http://localhost:8080/file/get/oppenheimer.png"
 	},
 	{
 		"movieId": 37,
@@ -54,7 +54,7 @@
 		],
 		"releaseYear": 2023,
 		"poster": "jawan.png",
-		"posterUrl": "http://localhost:8080/file/jawan.png"
+		"posterUrl": "http://localhost:8080/file/get/jawan.png"
 	},
 	{
 		"movieId": 38,
@@ -68,7 +68,7 @@
 		],
 		"releaseYear": 2014,
 		"poster": "john-wick.png",
-		"posterUrl": "http://localhost:8080/file/john-wick.png"
+		"posterUrl": "http://localhost:8080/file/get/john-wick.png"
 	},
 	{
 		"movieId": 39,
@@ -82,7 +82,7 @@
 		],
 		"releaseYear": 2021,
 		"poster": "godzilla-vs-kong.png",
-		"posterUrl": "http://localhost:8080/file/godzilla-vs-kong.png"
+		"posterUrl": "http://localhost:8080/file/get/godzilla-vs-kong.png"
 	},
 	{
 		"movieId": 40,
@@ -96,7 +96,7 @@
 		],
 		"releaseYear": 2019,
 		"poster": "godzilla-king-of-monsters.png",
-		"posterUrl": "http://localhost:8080/file/godzilla-king-of-monsters.png"
+		"posterUrl": "http://localhost:8080/file/get/godzilla-king-of-monsters.png"
 	},
 	{
 		"movieId": 41,
@@ -110,7 +110,7 @@
 		],
 		"releaseYear": 2008,
 		"poster": "batman-dark-knight-rises.png",
-		"posterUrl": "http://localhost:8080/file/batman-dark-knight-rises.png"
+		"posterUrl": "http://localhost:8080/file/get/batman-dark-knight-rises.png"
 	},
 	{
 		"movieId": 42,
@@ -124,7 +124,7 @@
 		],
 		"releaseYear": 2017,
 		"poster": "kong-skullisland.png",
-		"posterUrl": "http://localhost:8080/file/kong-skullisland.png"
+		"posterUrl": "http://localhost:8080/file/get/kong-skullisland.png"
 	},
 	{
 		"movieId": 43,
@@ -138,7 +138,7 @@
 		],
 		"releaseYear": 2008,
 		"poster": "iron-man-1.png",
-		"posterUrl": "http://localhost:8080/file/iron-man-1.png"
+		"posterUrl": "http://localhost:8080/file/get/iron-man-1.png"
 	},
 	{
 		"movieId": 44,
@@ -152,7 +152,7 @@
 		],
 		"releaseYear": 2011,
 		"poster": "captain-america-first-avenger.png",
-		"posterUrl": "http://localhost:8080/file/captain-america-first-avenger.png"
+		"posterUrl": "http://localhost:8080/file/get/captain-america-first-avenger.png"
 	},
 	{
 		"movieId": 45,
@@ -166,7 +166,7 @@
 		],
 		"releaseYear": 2021,
 		"poster": "black-widow.png",
-		"posterUrl": "http://localhost:8080/file/black-widow.png"
+		"posterUrl": "http://localhost:8080/file/get/black-widow.png"
 	},
 	{
 		"movieId": 46,
@@ -180,7 +180,7 @@
 		],
 		"releaseYear": 1978,
 		"poster": "small-justice-league-superman.png",
-		"posterUrl": "http://localhost:8080/file/small-justice-league-superman.png"
+		"posterUrl": "http://localhost:8080/file/get/small-justice-league-superman.png"
 	},
 	{
 		"movieId": 47,
@@ -194,7 +194,7 @@
 		],
 		"releaseYear": 2016,
 		"poster": "captain-america-civil-war.png",
-		"posterUrl": "http://localhost:8080/file/captain-america-civil-war.png"
+		"posterUrl": "http://localhost:8080/file/get/captain-america-civil-war.png"
 	},
 	{
 		"movieId": 48,
@@ -208,7 +208,7 @@
 		],
 		"releaseYear": 2010,
 		"poster": "iron-man-2.png",
-		"posterUrl": "http://localhost:8080/file/iron-man-2.png"
+		"posterUrl": "http://localhost:8080/file/get/iron-man-2.png"
 	},
 	{
 		"movieId": 49,
@@ -222,7 +222,7 @@
 		],
 		"releaseYear": 2014,
 		"poster": "captain-america-the-winter-soldier.png",
-		"posterUrl": "http://localhost:8080/file/captain-america-the-winter-soldier.png"
+		"posterUrl": "http://localhost:8080/file/get/captain-america-the-winter-soldier.png"
 	},
 	{
 		"movieId": 50,
@@ -236,7 +236,7 @@
 		],
 		"releaseYear": 2018,
 		"poster": "black-panther.png",
-		"posterUrl": "http://localhost:8080/file/black-panther.png"
+		"posterUrl": "http://localhost:8080/file/get/black-panther.png"
 	},
 	{
 		"movieId": 51,
@@ -250,7 +250,7 @@
 		],
 		"releaseYear": 2015,
 		"poster": "Ant-Man.png",
-		"posterUrl": "http://localhost:8080/file/Ant-Man.png"
+		"posterUrl": "http://localhost:8080/file/get/Ant-Man.png"
 	},
 	{
 		"movieId": 52,
@@ -264,7 +264,7 @@
 		],
 		"releaseYear": 2018,
 		"poster": "ant-man-and-wasp.png",
-		"posterUrl": "http://localhost:8080/file/ant-man-and-wasp.png"
+		"posterUrl": "http://localhost:8080/file/get/ant-man-and-wasp.png"
 	},
 	{
 		"movieId": 53,
@@ -285,7 +285,7 @@
 		],
 		"releaseYear": 2012,
 		"poster": "avengers-2012.png",
-		"posterUrl": "http://localhost:8080/file/avengers-2012.png"
+		"posterUrl": "http://localhost:8080/file/get/avengers-2012.png"
 	},
 	{
 		"movieId": 54,
@@ -299,7 +299,7 @@
 		],
 		"releaseYear": 2011,
 		"poster": "thor-1.png",
-		"posterUrl": "http://localhost:8080/file/thor-1.png"
+		"posterUrl": "http://localhost:8080/file/get/thor-1.png"
 	},
 	{
 		"movieId": 55,
@@ -313,7 +313,7 @@
 		],
 		"releaseYear": 2008,
 		"poster": "incredible-hulk.png",
-		"posterUrl": "http://localhost:8080/file/incredible-hulk.png"
+		"posterUrl": "http://localhost:8080/file/get/incredible-hulk.png"
 	},
 	{
 		"movieId": 56,
@@ -327,7 +327,7 @@
 		],
 		"releaseYear": 2020,
 		"poster": "wonder-woman-1984.png",
-		"posterUrl": "http://localhost:8080/file/wonder-woman-1984.png"
+		"posterUrl": "http://localhost:8080/file/get/wonder-woman-1984.png"
 	},
 	{
 		"movieId": 58,
@@ -341,7 +341,7 @@
 		],
 		"releaseYear": 2013,
 		"poster": "conjuring.png",
-		"posterUrl": "http://localhost:8080/file/conjuring.png"
+		"posterUrl": "http://localhost:8080/file/get/conjuring.png"
 	},
 	{
 		"movieId": 59,
@@ -355,6 +355,6 @@
 		],
 		"releaseYear": 2023,
 		"poster": "animal.png",
-		"posterUrl": "http://localhost:8080/file/animal.png"
+		"posterUrl": "http://localhost:8080/file/get/animal.png"
 	}
 ]
