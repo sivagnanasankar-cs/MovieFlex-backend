@@ -6,20 +6,18 @@ import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MovieMapper {
 
 
-    public List<MovieDto> movieToMovieDto(@NotNull List<Movie> movies, String baseUrl) {
-        List<MovieDto> movieDtos = new ArrayList<>();
-
-        for(Movie movie : movies){
-            movieDtos.add(movieToMovieDto(movie, baseUrl));
-        }
-        return movieDtos;
+    public List<MovieDto> movieToMovieDto(List<Movie> movies, String baseUrl) {
+        return movies.stream()
+                .map(movie -> movieToMovieDto(movie, baseUrl))
+                .collect(Collectors.toList());
     }
 
-    public MovieDto movieToMovieDto(@NotNull Movie movie, String baseUrl) {
+    public MovieDto movieToMovieDto(Movie movie, String baseUrl) {
         return  new MovieDto(
                 movie.getMovieId(),
                 movie.getTitle(),
@@ -32,7 +30,7 @@ public class MovieMapper {
         );
     }
 
-    public Movie movieDtoToMovie(@NotNull MovieDto movieDto) {
+    public Movie movieDtoToMovie(MovieDto movieDto) {
         return new Movie(
                 movieDto.getMovieId(),
                 movieDto.getTitle(),

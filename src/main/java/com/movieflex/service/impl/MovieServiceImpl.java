@@ -25,6 +25,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -100,7 +101,8 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public Response getAllMovies() {
         List<Movie> movies = movieRepository.findAll();
-        List<MovieDto> movieDtoList= movieMapper.movieToMovieDto(movies, baseUrl);
+        List<MovieDto> movieDtoList = !CommonUtils.checkIsNullOrEmpty(movies) ?
+                movieMapper.movieToMovieDto(movies, baseUrl) : new ArrayList<>();
         return Response.builder()
                 .statusCode(MessageCodes.OK)
                 .statusDescription("OK")
@@ -159,13 +161,12 @@ public class MovieServiceImpl implements MovieService {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         Page<Movie> moviePages = movieRepository.findAll(pageable);
         List<Movie> movies = moviePages.getContent();
-        List<MovieDto> movieDtos = movieMapper.movieToMovieDto(movies, baseUrl);
-
+        List<MovieDto> movieDtos = !CommonUtils.checkIsNullOrEmpty(movies) ?
+                movieMapper.movieToMovieDto(movies, baseUrl) : new ArrayList<>();
         MoviePageResponse moviePageResponse = new MoviePageResponse(movieDtos, pageNumber, pageSize,
                 (int) moviePages.getTotalElements(),
                 moviePages.getTotalPages(),
                 moviePages.isLast());
-
         return Response.builder()
                 .statusCode(MessageCodes.OK)
                 .statusDescription("Movies Found!")
@@ -178,13 +179,13 @@ public class MovieServiceImpl implements MovieService {
         Sort sort = dir.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
         Page<Movie> moviePages;
-        if (CommonUtils.checkIsNullOrEmpty(query)) {
+        if (CommonUtils.checkIsNullOrEmpty(query))
             moviePages = movieRepository.findAll(pageable);
-        } else {
+        else
             moviePages = movieRepository.searchByTitleDirectorOrCast(query, pageable);
-        }
         List<Movie> movies = moviePages.getContent();
-        List<MovieDto> movieDtos = movieMapper.movieToMovieDto(movies, baseUrl);
+        List<MovieDto> movieDtos = !CommonUtils.checkIsNullOrEmpty(movies) ?
+                movieMapper.movieToMovieDto(movies, baseUrl) : new ArrayList<>();
 
         MoviePageResponse moviePageResponse = new MoviePageResponse(movieDtos, pageNumber, pageSize,
                 (int) moviePages.getTotalElements(),

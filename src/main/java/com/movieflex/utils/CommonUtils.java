@@ -2,6 +2,7 @@ package com.movieflex.utils;
 
 import com.movieflex.auth.utils.RegisterRequest;
 
+import java.util.Collection;
 import java.util.regex.Pattern;
 
 public class CommonUtils {
@@ -22,11 +23,9 @@ public class CommonUtils {
     public static void isValidEmailFormat(String email) {
         if (checkIsNullOrEmpty(email))
             throw new IllegalArgumentException("Email is required");
-
         String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
         Pattern pattern = Pattern.compile(emailRegex);
         boolean isEmail =  pattern.matcher(email).matches();
-
         if(!isEmail)
             throw new IllegalArgumentException("Email is not in valid format");
     }
@@ -38,7 +37,19 @@ public class CommonUtils {
         return pattern.matcher(otp).matches();
     }
 
-    public static boolean checkIsNullOrEmpty(String str){
-        return str == null || str.isBlank();
+    public static boolean checkIsNullOrEmpty(String data) {
+        return data == null || data.isEmpty();
+    }
+
+    public static boolean checkIsNullOrEmpty(Object data){
+        return data == null;
+    }
+
+    public static boolean checkIsNullOrEmpty(Collection<?> data){
+        return data == null || data.isEmpty();
+    }
+
+    public static boolean checkIsNullOrEmpty(Object[] data){
+        return data == null || data.length == 0;
     }
 }
