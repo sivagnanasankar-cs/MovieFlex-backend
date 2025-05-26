@@ -51,28 +51,22 @@ public class AuthService {
             return Response.builder()
                     .statusCode("409")
                     .statusDescription("Email is already registered")
-                    .data(null)
                     .build();
         }
         if(userRepository.existsByUsername(registerRequest.getUsername())){
             return Response.builder()
                     .statusCode("409")
                     .statusDescription("Username is already exists")
-                    .data(null)
                     .build();
         }
 
         OtpVerification otpVerification = this.createOtpVerification(registerRequest);
-        otpVerificationRepository.save(otpVerification);
-
-        MailBody mailBody = this.createMailBodyForOtpVerification(otpVerification);
-        this.sendEmailInBackground(mailBody);
-//        emailService.sendSimpleMessage(mailBody);
+        otpVerification = otpVerificationRepository.save(otpVerification);
+        this.sendEmailInBackground(this.createMailBodyForOtpVerification(otpVerification));
 
         return Response.builder()
                 .statusCode(MessageCodes.OK)
                 .statusDescription("Verification OTP sent successfully")
-                .data(null)
                 .build();
     }
 
@@ -119,30 +113,19 @@ public class AuthService {
             return  Response.builder()
                     .statusCode(MessageCodes.INTERNAL_SERVER_ERROR)
                     .statusDescription("Email not found for Verification. Please Verify your email id " + email )
-                    .data(null)
-                    .build();
-        }
-        otp = otp.trim();
-        if(!CommonUtils.isOtpValid(otp)){
-            return Response.builder()
-                    .statusCode(MessageCodes.INTERNAL_SERVER_ERROR)
-                    .statusDescription("OTP is not Valid.\nTry again.")
-                    .data(null)
                     .build();
         }
         OtpVerification otpVerification = otpVerificationRepository.findByEmailAndOtp(email, otp).orElse(null);
-        if(otpVerification == null){
+        if(CommonUtils.checkIsNullOrEmpty(otpVerification)){
             return Response.builder()
                     .statusCode(MessageCodes.INTERNAL_SERVER_ERROR)
                     .statusDescription("Entered otp is wrong.\nTry again")
-                    .data(null)
                     .build();
         }
         if(otpVerification.getIsVerified()){
             return Response.builder()
                     .statusCode(MessageCodes.INTERNAL_SERVER_ERROR)
                     .statusDescription("Entered otp is Verified. Try Logging in.")
-                    .data(null)
                     .build();
         }
         if(otpVerification.getExpiration().isBefore(Instant.now())){
@@ -150,27 +133,20 @@ public class AuthService {
             return Response.builder()
                     .statusCode(MessageCodes.INTERNAL_SERVER_ERROR)
                     .statusDescription("Entered otp is Expired.\nGenerate new OTP")
-                    .data(null)
                     .build();
         }
 
         User user = this.createUser(otpVerification);
         otpVerification.setIsVerified(Boolean.TRUE);
         otpVerificationRepository.save(otpVerification);
-
-        MailBody mailBody = this.createMailBodyForRegisteration(user);
-        this.sendEmailInBackground(mailBody);
-//        emailService.sendSimpleMessage(mailBody);
-
+        this.sendEmailInBackground(this.createMailBodyForRegisteration(user));
         User savedUser = userRepository.save(user);
         String accessToken = jwtService.generateToken(savedUser);
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(user.getEmail());
-
         AuthResponse authResponse = AuthResponse.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken.getRefreshToken())
                 .build();
-
         return Response.builder()
                 .statusCode(MessageCodes.OK)
                 .statusDescription("Registration Successful")
@@ -193,16 +169,13 @@ public class AuthService {
         if(CommonUtils.checkIsNullOrEmpty(loginRequest.getPassword())){
             throw new IllegalArgumentException("Empty password");
         }
-
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword())
         );
         var user = userRepository.findByEmail(loginRequest.getEmail())
                 .orElseThrow(() -> new UsernameNotFoundException("user not found!"));
-
         String accessToken = jwtService.generateToken(user);
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(user.getEmail());
-
         AuthResponse authResponse = AuthResponse.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken.getRefreshToken())

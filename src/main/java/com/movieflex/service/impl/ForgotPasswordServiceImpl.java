@@ -40,27 +40,21 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
         if(CommonUtils.checkIsNullOrEmpty(email)){
             throw new IllegalArgumentException("Email is empty");
         }
-
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("Please provide a valid email"));
-
         int otp = this.otpGenerator();
-
         MailBody mailBody = MailBody.builder()
                 .to(email)
                 .text(otp + " is the otp for your forgot password request. It will expire in 5 minute")
                 .subject("OTP for Forgot Password Request")
                 .build();
-
         ForgotPassword fp = ForgotPassword.builder()
                 .otp(otp)
-                .expirationTime(Date.from(Instant.now().plusSeconds((10 * 60))))
+                .expirationTime(Date.from(Instant.now().plusSeconds(10 * 60)))
                 .user(user)
                 .build();
-
-
-        emailService.sendSimpleMessage(mailBody);
         forgotPasswordRepository.save(fp);
+        emailService.sendSimpleMessage(mailBody);
         return Response.builder()
                 .statusCode(MessageCodes.OK)
                 .statusDescription("OTP sent successfully")
@@ -71,18 +65,14 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
 
     @Override
     public Response verifyOtp(Integer otp, String email) {
-        if(CommonUtils.checkIsNullOrEmpty(email)){
+        if(CommonUtils.checkIsNullOrEmpty(email))
             throw new IllegalArgumentException("Email is empty");
-        }
-        if(otp == null){
+        if(otp == null)
             throw new IllegalArgumentException("OTP is empty");
-        }
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("Please provide a valid email"));
-
         ForgotPassword fp = forgotPasswordRepository.findByOtpAndUser(otp, user)
                 .orElseThrow(() -> new RuntimeException("Invalid otp for email" + email));
-
         if(fp.getExpirationTime().before(Date.from(Instant.now()))){
             forgotPasswordRepository.deleteById(fp.getFpid());
             return Response.builder()
@@ -91,7 +81,6 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
                     .data("OTP validity Expired - Try again")
                     .build();
         }
-
         return Response.builder()
                 .statusCode(MessageCodes.OK)
                 .statusDescription("OTP verified Successfully")
@@ -105,7 +94,6 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
         if (!changePassword.getPassword().equals(changePassword.getRepeatPassword())) {
             response.setStatusCode(HttpStatus.EXPECTATION_FAILED.toString());
             response.setStatusCode("\"Passwords do not match!\n Please re enter");
-            response.setData(null);
             return response;
         }
         String encodedPassword = passwordEncoder.encode(changePassword.getPassword());
