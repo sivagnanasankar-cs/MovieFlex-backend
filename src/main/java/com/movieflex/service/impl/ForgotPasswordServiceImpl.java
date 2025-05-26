@@ -67,7 +67,7 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
     public Response verifyOtp(Integer otp, String email) {
         if(CommonUtils.checkIsNullOrEmpty(email))
             throw new IllegalArgumentException("Email is empty");
-        if(otp == null)
+        if(CommonUtils.checkIsNullOrEmpty(otp))
             throw new IllegalArgumentException("OTP is empty");
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("Please provide a valid email"));
