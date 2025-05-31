@@ -1,6 +1,7 @@
 package com.movieflex.utils;
 
 import com.movieflex.auth.utils.RegisterRequest;
+import org.hibernate.validator.internal.constraintvalidators.bv.EmailValidator;
 
 import java.util.Collection;
 import java.util.regex.Pattern;
@@ -23,7 +24,7 @@ public class CommonUtils {
     public static void isValidEmailFormat(String email) {
         if (checkIsNullOrEmpty(email))
             throw new IllegalArgumentException("Email is required");
-        String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
         Pattern pattern = Pattern.compile(emailRegex);
         boolean isEmail =  pattern.matcher(email).matches();
         if(!isEmail)
