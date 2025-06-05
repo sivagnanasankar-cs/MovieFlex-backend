@@ -12,6 +12,7 @@ import java.util.Set;
 
 @NoArgsConstructor
 @Data
+@AllArgsConstructor
 @Entity
 public class Movie {
 

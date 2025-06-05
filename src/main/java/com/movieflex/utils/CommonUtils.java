@@ -1,6 +1,8 @@
 package com.movieflex.utils;
 
 import com.movieflex.auth.utils.RegisterRequest;
+import jakarta.mail.internet.AddressException;
+import jakarta.mail.internet.InternetAddress;
 import org.hibernate.validator.internal.constraintvalidators.bv.EmailValidator;
 
 import java.util.Collection;
