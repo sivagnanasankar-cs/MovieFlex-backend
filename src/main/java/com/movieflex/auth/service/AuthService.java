@@ -105,8 +105,6 @@ public class AuthService {
                 .build();
     }
 
-
-
     public Response verifyRegistration(String otp, String email){
         boolean emailExists = otpVerificationRepository.existsByEmail(email);
         if(!emailExists){
@@ -139,9 +137,9 @@ public class AuthService {
         User user = this.createUser(otpVerification);
         otpVerification.setIsVerified(Boolean.TRUE);
         otpVerificationRepository.save(otpVerification);
+        user = userRepository.save(user);
         this.sendEmailInBackground(this.createMailBodyForRegisteration(user));
-        User savedUser = userRepository.save(user);
-        String accessToken = jwtService.generateToken(savedUser);
+        String accessToken = jwtService.generateToken(user);
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(user.getEmail());
         AuthResponse authResponse = AuthResponse.builder()
                 .accessToken(accessToken)

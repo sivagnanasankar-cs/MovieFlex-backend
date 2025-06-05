@@ -4,6 +4,7 @@ import com.movieflex.config.DataSourceConfig;
 import com.movieflex.dto.MailBody;
 import com.movieflex.service.EmailService;
 import com.movieflex.utils.CommonUtils;
+import jakarta.mail.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -36,4 +37,3 @@ public class EmailServiceImpl implements EmailService {
     }
 
 }
-
